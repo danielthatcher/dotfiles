@@ -36,7 +36,7 @@ alias pacr='sudo pacman -Rs'
 alias pacu='sudo pacman -Syu && pacaur -Syyu'
 
 ##Power
-alias bork='sudo shutdown -h now'
+alias bork='sudo systemctl poweroff'
 alias hibernate='i3lock && sudo systemctl hibernate'
 
 ##File associations
