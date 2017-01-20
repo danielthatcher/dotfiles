@@ -34,12 +34,8 @@ alias pac='sudo pacman -S'
 alias pacs='sudo pacman -Ss'
 alias pacr='sudo pacman -Rs'
 alias pacu='sudo pacman -Syu && pacaur -Syyu'
-reCatalyst() {
-	sudo pacman -S catalyst-{hook,utils,libgl} opencl-catalyst lib32-catalyst-{utils,libgl} lib32-opencl-catalyst
-}
 
 ##Power
-alias wboot='sudo grub-reboot "Windows 10" && sudo reboot'
 alias bork='sudo shutdown -h now'
 alias hibernate='i3lock && sudo systemctl hibernate'
 
