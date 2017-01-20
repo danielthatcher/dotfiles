@@ -37,7 +37,7 @@ alias pacu='sudo pacman -Syu && pacaur -Syyu'
 
 ##Power
 alias bork='sudo systemctl poweroff'
-alias hibernate='i3lock && sudo systemctl hibernate'
+alias hibernate='~/.i3/lock.sh && systemctl hibernate'
 
 ##File associations
 function openVideo() {
