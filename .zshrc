@@ -49,7 +49,7 @@ function openVideo() {
     fi
 }
 alias -s {ts,mkv,mp3,mp4,srt,avi}="openVideo"
-alias -s {jpg,jpeg,png,tiff,pdf}="google-chrome-stable"
+alias -s {jpg,jpeg,png,tiff,pdf}="chromium"
 alias -s {zip}="unzip"
 alias mlink='torify peerflix -v'
 alias tmlink='sudo -u tor tor & torify peerflix -v'
