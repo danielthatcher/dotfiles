@@ -201,7 +201,8 @@ smart_gaps on
 bindsym $mod+backslash exec /home/daniel/.i3/lock.sh
 
 #Media keys
-set $audioDevice alsa_output.pci-0000_00_14.2.analog-stereo
+#set $audioDevice alsa_output.pci-0000_00_14.2.analog-stereo
+set $audioDevice 0
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $audioDevice +5% && pkill -RTMIN+$sig_volume i3blocks
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume $audioDevice -5% && pkill -RTMIN+$sig_volume i3blocks
 bindsym XF86AudioMute exec pactl set-sink-mute $audioDevice toggle -RTMIN+$sig_volume i3blocks
@@ -209,6 +210,10 @@ bindsym XF86AudioMute exec pactl set-sink-mute $audioDevice toggle -RTMIN+$sig_v
 bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+$sig_mediaplayer i3blocks
 bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+$sig_mediaplayer i3blocks
 bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+$sig_mediaplayer i3blocks
+
+#Backlight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 
 #Scratchpad stuff
 bindsym $mod+i scratchpad show
