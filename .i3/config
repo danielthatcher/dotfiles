@@ -220,7 +220,7 @@ bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
 #Shortcuts
-bindsym $shr+h exec google-chrome-stable
+bindsym $shr+h exec chromium 
 bindsym $shr+j exec firefox -no-remote
 bindsym $shr+k exec spotify
 bindsym $shr+l exec tomahawk
