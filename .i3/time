@@ -1,0 +1,4 @@
+#! /bin/bash
+
+date '+%A %d %B, %I:%M %p'
+echo ''
