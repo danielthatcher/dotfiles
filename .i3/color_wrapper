@@ -1,0 +1,38 @@
+#! /bin/bash
+
+#Takes a script name and assings a pre-chosen color from the definitions below
+
+source ~/.colors
+
+dir=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+OIFS=$IFS
+IFS=$'\n'
+i=0
+for line in `eval $dir/$1 | head -2`; do
+	echo $line
+	i=$(($i+1))
+done
+
+for n in $(seq $(($i+1)) 2); do
+	echo ''
+done
+
+case $1 in
+	'updates')
+		echo "$COLOR12"
+		;;
+	'volume')
+		echo "$COLOR9"
+		;;
+	'disk')
+		echo "$COLOR6"
+		;;
+	'time')
+		echo "$COLOR3"
+		;;
+	*)
+		echo 'white'
+		;;
+esac
+IFS=$OIFS
