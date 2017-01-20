@@ -1,0 +1,10 @@
+!URxvt font and colour
+URxvt*foreground: #DADADA
+URxvt.font: xft:cousine:size=9
+
+!Transparency for URxvt
+URxvt.depth: 32
+URxvt.background: [95]#151515
+
+!Disable URxvt scrollbar
+URxvt.scrollBar: false
