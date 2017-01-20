@@ -1,10 +1,10 @@
-#! /usr/bin/zsh
+#! /usr/bin/sh
 
 #Uses nitrogen to set a random wallpaper on two monitors from two different source directories
 
-#source1='/home/daniel/Documents/Wallpapers/16-9/'
+source1='/home/daniel/Documents/Wallpapers/16-9/'
 #source2='/home/daniel/Documents/Wallpapers/21-9/'
-source1='/home/daniel/Documents/Wallpapers/21-9/'
+#source1='/home/daniel/Documents/Wallpapers/21-9/'
 
 image1=$(ls $source1 | sort -R | tail -1)
 #image2=$(ls $source2 | sort -R | tail -1)
