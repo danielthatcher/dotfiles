@@ -124,10 +124,6 @@ bindsym $mod+2 workspace 2: focus
 bindsym $mod+3 workspace 3: music
 bindsym $mod+4 workspace 4: misc
 bindsym $mod+5 workspace 5: misc
-bindsym $mod+2 workspace 2: focus
-bindsym $mod+3 workspace 3: music
-bindsym $mod+4 workspace 4: misc
-bindsym $mod+5 workspace 5: misc
 bindsym $mod+6 workspace 6: misc
 bindsym $mod+7 workspace 7: misc
 bindsym $mod+8 workspace 8: misc
