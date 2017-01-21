@@ -31,12 +31,12 @@ export PATH="$HOME/bin:$PATH"
 #User aliases
 ##Pakcage management
 alias pac='sudo pacman -S'
-alias pacs='sudo pacman -Ss'
+alias pacs='pacman -Ss'
 alias pacr='sudo pacman -Rs'
 alias pacu='sudo pacman -Syu && pacaur -Syyu'
 
 ##Power
-alias bork='sudo systemctl poweroff'
+alias bork='systemctl poweroff'
 alias hibernate='~/.i3/lock.sh && systemctl hibernate'
 
 ##File associations
