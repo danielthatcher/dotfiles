@@ -19,6 +19,9 @@ exec compton -i 0.87 -b -CG -m 0.9 -fI 0.035 -O 0.035 --config /dev/null --backe
 #Start f.lux
 exec --no-startup-id xflux -l 51
 
+#Start xss-lock to lock the screen on hibernate and sleep
+exec xss-lock -- $HOME/.i3/lock.sh
+
 #Signals to update i3blocks
 set $sig_volume 9
 set $sig_mediaplayer 10
@@ -121,6 +124,10 @@ bindsym $mod+2 workspace 2: focus
 bindsym $mod+3 workspace 3: music
 bindsym $mod+4 workspace 4: misc
 bindsym $mod+5 workspace 5: misc
+bindsym $mod+2 workspace 2: focus
+bindsym $mod+3 workspace 3: music
+bindsym $mod+4 workspace 4: misc
+bindsym $mod+5 workspace 5: misc
 bindsym $mod+6 workspace 6: misc
 bindsym $mod+7 workspace 7: misc
 bindsym $mod+8 workspace 8: misc
@@ -205,7 +212,7 @@ bindsym $mod+backslash exec /home/daniel/.i3/lock.sh
 set $audioDevice 0
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $audioDevice +5% && pkill -RTMIN+$sig_volume i3blocks
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume $audioDevice -5% && pkill -RTMIN+$sig_volume i3blocks
-bindsym XF86AudioMute exec pactl set-sink-mute $audioDevice toggle -RTMIN+$sig_volume i3blocks
+bindsym XF86AudioMute exec pactl set-sink-mute $audioDevice toggle && pkill -RTMIN+$sig_volume i3blocks
 
 bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+$sig_mediaplayer i3blocks
 bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+$sig_mediaplayer i3blocks
@@ -213,10 +220,6 @@ bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+$sig_mediaplayer i
 
 #Backlight
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-
-#Scratchpad stuff
-bindsym $mod+i scratchpad show
 bindsym $mod+Shift+i move scratchpad
 
 #Shortcuts
