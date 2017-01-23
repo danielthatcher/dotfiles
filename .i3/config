@@ -6,7 +6,7 @@
 #
 
 #Add ~/bin to path for dmenu
-exec export PATH="$HOME/bin:$PATH"
+exec export PATH="$HOME/.local/bin:$PATH"
 
 #Disable sleep mode
 exec xset s off
@@ -216,7 +216,11 @@ bindsym XF86AudioPrev exec playerctl previous && pkill -RTMIN+$sig_mediaplayer i
 
 #Backlight
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
+#Scratchpad
 bindsym $mod+Shift+i move scratchpad
+bindsym $mod+i scratchpad show
 
 #Shortcuts
 bindsym $shr+h exec chromium 
@@ -227,4 +231,3 @@ bindsym $shr+semicolon exec i3-sensible-terminal
 
 #Set the wallpaper
 exec_always --no-startup-id ~/.i3/rand_wallpaper.sh
-
