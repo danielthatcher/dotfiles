@@ -30,8 +30,12 @@ let python_highlight_all=1
 set tabstop=4 shiftwidth=4 expandtab
 set nu
 set formatoptions-=cro
-set tw=79
+set tw=120
 set hidden
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+" New line remaps
+nnoremap <CR> o<ESC>k
 
 " Add code folding and remap to space
 set foldmethod=indent
