@@ -59,4 +59,3 @@ alias -s {jar}='java -jar'
 alias lsa='ls -A'
 alias jbook='cd ~/Documents/Jupyter\ Notebooks/ && jupyter-notebook'
 alias syncgdrive='cd /home/daniel/GoogleDrive/ && grive && cd -'
-source /usr/share/doc/pkgfile/command-not-found.zsh
