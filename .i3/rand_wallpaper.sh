@@ -10,7 +10,7 @@ image2=$(ls $source | sort -R | tail -1)
 nitrogen --set-scaled --head=0 "$source$image1"
 
 # For the gtk lightdm greeter
-cp $source$image2 /usr/share/pixmaps/greeter_wallpaper
+cp $source$image2 /usr/share/backgrounds/lightdm-material
 
 #Load terminal colours from images
 #if ! [ -f "/home/daniel/.wallpapers/$image2" ]; then
