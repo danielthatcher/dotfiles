@@ -183,7 +183,7 @@ bar {
     status_command i3blocks -c ~/.i3/i3blocks.conf
 	tray_output none
 	separator_symbol ">-<"
-	font cousine
+	font pango:Cousine, FontAwesome:Regular 11
 	colors {
 		focused_workspace #606060 #606060 #cccccc
 		active_workspace #404040 #404040 #bcbcbc
@@ -206,9 +206,9 @@ bindsym $mod+backslash exec /home/daniel/.i3/lock.sh
 #Media keys
 #set $audioDevice alsa_output.pci-0000_00_14.2.analog-stereo
 set $audioDevice 0
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $audioDevice +5% && pkill -RTMIN+$sig_volume i3blocks
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume $audioDevice -5% && pkill -RTMIN+$sig_volume i3blocks
-bindsym XF86AudioMute exec pactl set-sink-mute $audioDevice toggle && pkill -RTMIN+$sig_volume i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q -D default set Master 5%+ && pkill -RTMIN+$sig_volume i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q -D default set Master 5%- && pkill -RTMIN+$sig_volume i3blocks
+bindsym XF86AudioMute exec amixer -q -D default sset Master toggle && pkill -RTMIN+$sig_volume i3blocks
 
 bindsym XF86AudioPlay exec playerctl play-pause && pkill -RTMIN+$sig_mediaplayer i3blocks
 bindsym XF86AudioNext exec playerctl next && pkill -RTMIN+$sig_mediaplayer i3blocks
