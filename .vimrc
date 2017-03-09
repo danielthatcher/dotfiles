@@ -3,8 +3,11 @@ call plug#begin('~/.vim/bundle')
 
 " Plugins
 Plug 'Valloric/YouCompleteMe'
-Plug 'tmhedberg/SimpylFold'
-Plug 'vim-scripts/indentpython.vim'
+Plug 'tmhedberg/SimpylFold', {'for':'python'}
+Plug 'vim-scripts/indentpython.vim', {'for':'python'}
+Plug 'lepture/vim-jinja', {'for':'html'}
+Plug 'othree/xml.vim', {'for':'html'}
+"Plug 'vim-scripts/closetag.vim', {'for':'html'}
 "Plug 'scrooloose/syntastic'
 "Plug 'nvie/vim-flake8'
 Plug 'tpope/vim-fugitive'
@@ -30,7 +33,6 @@ let python_highlight_all=1
 set tabstop=4 shiftwidth=4 expandtab
 set nu
 set formatoptions-=cro
-set tw=120
 set hidden
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
@@ -74,3 +76,9 @@ else
     map <F3> :sh<CR>
     imap <F3> :sh<CR>
 endif 
+
+" LaTeX settings
+let g:tex_conceal="gba"
+autocmd FileType tex set breakindent
+"autocmd BufWritePost *.tex !pdflatex % && killall -HUP mupdf
+autocmd BufWritePost *.tex call jobstart('pdflatex '.expand('%').' && killall -HUP mupdf')
