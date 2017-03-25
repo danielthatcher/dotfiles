@@ -7,8 +7,6 @@ Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
 Plug 'lepture/vim-jinja', {'for':'html'}
 Plug 'othree/xml.vim', {'for':'html'}
-"Plug 'vim-scripts/closetag.vim', {'for':'html'}
-"Plug 'scrooloose/syntastic'
 Plug 'nvie/vim-flake8', {'for':'python'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
@@ -47,7 +45,7 @@ nnoremap <C-c> <C-w>c
 nnoremap <CR> o<ESC>k
 
 " Add code folding and remap to space
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 nnoremap <space> za
 
@@ -72,7 +70,7 @@ imap <F2> :MBEToggle<CR>
 set hidden
 
 " Settings for YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1 " Ensure that the completion window goes away once out of use
+let g:ycm_autoclose_preview_window_after_completion=1
 
 " Settings for minibufexplorer
 let g:miniBufExplorerAutoStart = 0
@@ -129,7 +127,7 @@ nmap <Leader>s :set spell!<CR>
 " Python settings
 let python_highlight_all=1
 autocmd filetype python highlight ColorColumn ctermbg=magenta
-autocmd filetype python call matchadd('ColorColumn', '\%80v', 100)
+autocmd filetype python call matchadd('ColorColumn', '\%80v\S', 100)
 autocmd BufWritePost *.py call Flake8()
 
 " C settings
