@@ -25,35 +25,27 @@ autoload -U colors
 colors
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%} "
 
-#Add ~/bin to path
-export PATH="$HOME/bin:$PATH"
+#Add ~/.local/bin to path
+export PATH="$HOME/.local/bin:$PATH"
 
 #User aliases
 ##Pakcage management
 alias pac='sudo pacman -S'
-alias pacs='sudo pacman -Ss'
+alias pacs='pacman -Ss'
 alias pacr='sudo pacman -Rs'
 alias pacu='sudo pacman -Syu && pacaur -Syyu'
-reCatalyst() {
-	sudo pacman -S catalyst-{hook,utils,libgl} opencl-catalyst lib32-catalyst-{utils,libgl} lib32-opencl-catalyst
-}
 
 ##Power
-alias wboot='sudo grub-reboot "Windows 10" && sudo reboot'
-alias bork='sudo shutdown -h now'
-alias hibernate='i3lock && sudo systemctl hibernate'
+alias bork='systemctl poweroff'
+alias hibernate='~/.i3/lock.sh && systemctl hibernate'
 
 ##File associations
 function openVideo() {
-    ext = $(echo $1 | cut -f 1 -d '.')
-    if [ "$ext" -eq "mkv" ]; then
-	    vlc "$@" 2>/dev/null &
-    else
-        mpv "$@" 2>/dev/null &
-    fi
+    ext=$(echo $1 | cut -f 1 -d '.')
+	vlc "$@" 2>/dev/null &
 }
 alias -s {ts,mkv,mp3,mp4,srt,avi}="openVideo"
-alias -s {jpg,jpeg,png,tiff,pdf}="google-chrome-stable"
+alias -s {jpg,jpeg,png,tiff,pdf}="chromium"
 alias -s {zip}="unzip"
 alias mlink='torify peerflix -v'
 alias tmlink='sudo -u tor tor & torify peerflix -v'
@@ -63,4 +55,3 @@ alias -s {jar}='java -jar'
 alias lsa='ls -A'
 alias jbook='cd ~/Documents/Jupyter\ Notebooks/ && jupyter-notebook'
 alias syncgdrive='cd /home/daniel/GoogleDrive/ && grive && cd -'
-source /usr/share/doc/pkgfile/command-not-found.zsh

@@ -8,3 +8,6 @@ URxvt.background: [95]#151515
 
 !Disable URxvt scrollbar
 URxvt.scrollBar: false
+
+! DPI for laptop
+Xft.dpi: 130
