@@ -9,7 +9,7 @@ Plug 'lepture/vim-jinja', {'for':'html'}
 Plug 'othree/xml.vim', {'for':'html'}
 "Plug 'vim-scripts/closetag.vim', {'for':'html'}
 "Plug 'scrooloose/syntastic'
-Plug 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8', {'for':'python'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'scrooloose/nerdtree'
@@ -77,12 +77,42 @@ let g:ycm_autoclose_preview_window_after_completion=1 " Ensure that the completi
 " Settings for minibufexplorer
 let g:miniBufExplorerAutoStart = 0
 
-" Terminal and terminal remappings
+" Neovim terminal handling
+function! s:win_by_bufname(bufname)
+    let bufmap = map(range(1, winnr('$')), '[bufname(winbufnr(v:val)), v:val]')
+    let thewindow = filter(bufmap, 'v:val[0] =~ a:bufname')[0][1]
+    execute thewindow 'wincmd w'
+endfunction
+
+function SwitchToTerm()
+    if bufexists("NVIMTERM") > 0
+        if bufwinnr("NVIMTERM") > 0
+            " Already visible on the screen, so switch to it
+            call s:win_by_bufname("NVIMTERM")
+            startinsert
+        else
+            " Not visible so open it
+            botright 15split NVIMTERM
+            startinsert
+        endif
+    else
+        botright 15split
+        terminal
+        keepalt file NVIMTERM
+    endif
+endfunction
+
 if has('nvim')
-    map <F3> :botright 15split<CR>:terminal<CR>
+    nmap <F3> :call SwitchToTerm()<CR>
     imap <F3> <ESC><F3>
-    tnoremap <ESC> <C-\><C-n>:bd!<CR>
+    tnoremap <ESC> <C-\><C-n><C-w><C-c>
+
+    "Navigation
     tnoremap <C-w> <C-\><C-n><C-w>
+    tnoremap <C-h> <C-\><C-n><C-w><C-h>
+    tnoremap <C-j> <C-\><C-n><C-w><C-j>
+    tnoremap <C-k> <C-\><C-n><C-w><C-k>
+    tnoremap <C-l> <C-\><C-n><C-w><C-l>
 else
     map <F3> :sh<CR>
     imap <F3> :sh<CR>
