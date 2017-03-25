@@ -1,4 +1,4 @@
 #! /usr/bin/env bash
 
 updates=$(checkupdates | wc -l)
-echo "$updates updates"
+echo "$updates"

@@ -25,8 +25,8 @@ autoload -U colors
 colors
 PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%} "
 
-#Add ~/bin to path
-export PATH="$HOME/bin:$PATH"
+#Add ~/.local/bin to path
+export PATH="$HOME/.local/bin:$PATH"
 
 #User aliases
 ##Pakcage management
@@ -41,12 +41,8 @@ alias hibernate='~/.i3/lock.sh && systemctl hibernate'
 
 ##File associations
 function openVideo() {
-    ext = $(echo $1 | cut -f 1 -d '.')
-    if [ "$ext" -eq "mkv" ]; then
-	    vlc "$@" 2>/dev/null &
-    else
-        mpv "$@" 2>/dev/null &
-    fi
+    ext=$(echo $1 | cut -f 1 -d '.')
+	vlc "$@" 2>/dev/null &
 }
 alias -s {ts,mkv,mp3,mp4,srt,avi}="openVideo"
 alias -s {jpg,jpeg,png,tiff,pdf}="chromium"

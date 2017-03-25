@@ -20,16 +20,22 @@ done
 
 case $1 in
 	'updates')
-		echo "$COLOR12"
+		echo "$COLOR11"
 		;;
 	'volume')
 		echo "$COLOR9"
 		;;
 	'disk')
-		echo "$COLOR6"
+		echo "$COLOR7"
+		;;
+    'net_ssid')
+        echo "$COLOR5"
+        ;;
+	'battery')
+		echo "$COLOR3"
 		;;
 	'time')
-		echo "$COLOR3"
+		echo "$COLOR1"
 		;;
 	*)
 		echo 'white'
