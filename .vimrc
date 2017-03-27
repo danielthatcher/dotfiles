@@ -57,11 +57,6 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
-" Nerdtree config
-map <F1> <ESC>:NERDTreeToggle<CR>
-imap <F1> <ESC>:NERDTreeToggle<CR>
-let g:NERDTreeWinSize=35
-
 " MiniBuExplorer and other buffer
 map <F2> :MBEToggle<CR>
 imap <F2> :MBEToggle<CR>
@@ -80,7 +75,7 @@ function! s:win_by_bufname(bufname)
     execute thewindow 'wincmd w'
 endfunction
 
-function SwitchToTerm()
+function! SwitchToTerm()
     if bufexists("NVIMTERM") > 0
         if bufwinnr("NVIMTERM") > 0
             " Already visible on the screen, so switch to it
@@ -116,7 +111,6 @@ endif
 
 " Leader shortcuts
 let mapleader = ","
-nmap <Leader>1 <F1>
 nmap <Leader>2 <F2>
 nmap <Leader>3 <F3>
 nmap <Leader>n :noh<CR>
