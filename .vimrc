@@ -10,8 +10,6 @@ Plug 'othree/xml.vim', {'for':'html'}
 Plug 'nvie/vim-flake8', {'for':'python'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'fholgado/minibufexpl.vim'
 
 " Color schemes
