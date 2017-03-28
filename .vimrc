@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/bundle')
 
 " Plugins
-Plug 'Valloric/YouCompleteMe'
+Plug 'maralla/completor.vim'
 Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
 Plug 'lepture/vim-jinja', {'for':'html'}
@@ -61,9 +61,6 @@ let g:indentLine_enabled = 1
 map <F2> :MBEToggle<CR>
 imap <F2> :MBEToggle<CR>
 set hidden
-
-" Settings for YouCompleteMe
-let g:ycm_autoclose_preview_window_after_completion=1
 
 " Settings for minibufexplorer
 let g:miniBufExplorerAutoStart = 0
