@@ -3,6 +3,7 @@ call plug#begin('~/.vim/bundle')
 
 " Plugins
 Plug 'maralla/completor.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'tmhedberg/SimpylFold', {'for':'python'}
 Plug 'vim-scripts/indentpython.vim', {'for':'python'}
 Plug 'lepture/vim-jinja', {'for':'html'}
@@ -51,6 +52,8 @@ nnoremap <space> za
 set path+=**
 set wildmenu
 set wildignore+=**.pyc
+set ignorecase
+set smartcase
 
 " Indentline configuration
 let g:indentLine_color_term = 239
@@ -64,6 +67,25 @@ set hidden
 
 " Settings for minibufexplorer
 let g:miniBufExplorerAutoStart = 0
+
+" Settings for completer
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>\<cr>" : "\<cr>"
+
+" Settings for lightline
+let g:lightline = {
+\   'colorscheme': 'wombat',
+\   'active': {
+\       'left': [ [ 'fugitive', 'paste' ], [ 'readonly', 'filename', 'modified'] ]
+\   },
+\   'component': {
+\       'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+\   },
+\   'component_visible_condition': {
+\       'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+\   }
+\ }
 
 " Neovim terminal handling
 function! s:win_by_bufname(bufname)
