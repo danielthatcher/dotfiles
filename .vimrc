@@ -19,7 +19,7 @@ Plug 'albertorestifo/github.vim'
 Plug 'dikiaap/minimalist'
 Plug 'cohlin/vim-colorschemes'
 
-" End vim-plug stuff
+    " End vim-plug stuff
 call plug#end()
 
 "set termguicolors 
@@ -41,7 +41,7 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-c> <C-w>c
 
 " New line remaps
-nnoremap <CR> o<ESC>k
+nnoremap <Enter> mno<ESC>`n
 
 " Add code folding and remap to space
 set foldmethod=syntax
