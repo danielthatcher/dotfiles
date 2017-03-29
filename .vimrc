@@ -24,6 +24,7 @@ call plug#end()
 
 "set termguicolors 
 colorscheme minimalist
+autocmd ColorScheme * hi Comment ctermfg=darkgray ctermbg=NONE cterm=NONE guifg=#444444 guibg=NONE gui=NONE
 
 " Misc stuff
 syntax on
