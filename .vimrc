@@ -1,4 +1,3 @@
-" Setup vim-plug
 call plug#begin('~/.vim/bundle')
 
 " Plugins
@@ -19,7 +18,12 @@ Plug 'albertorestifo/github.vim'
 Plug 'dikiaap/minimalist'
 Plug 'cohlin/vim-colorschemes'
 
-    " End vim-plug stuff
+" Local plugins
+if filereadable(expand("~/.vimplug.local"))
+    source ~/.vimplug.local
+endif
+
+" End vim-plug stuff
 call plug#end()
 
 "set termguicolors 
@@ -33,6 +37,8 @@ set nu
 set formatoptions-=cro
 set hidden
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set wrap
+set linebreak
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
@@ -42,7 +48,7 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-c> <C-w>c
 
 " New line remaps
-nnoremap <Enter> mno<ESC>`n
+" nnoremap <Enter> mno<ESC>`n
 
 " Add code folding and remap to space
 set foldmethod=syntax
@@ -62,8 +68,8 @@ let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
 " MiniBuExplorer and other buffer
-map <F2> :MBEToggle<CR>
-imap <F2> :MBEToggle<CR>
+" map <F2> :MBEToggle<CR>
+" imap <F2> :MBEToggle<CR>
 set hidden
 
 " Settings for minibufexplorer
@@ -115,6 +121,7 @@ endfunction
 
 if has('nvim')
     nmap <F3> :call SwitchToTerm()<CR>
+    nmap <F2> <F3><UP>
     imap <F3> <ESC><F3>
     tnoremap <ESC> <C-\><C-n><C-w><C-c>
 
@@ -138,9 +145,9 @@ nmap <Leader>s :set spell!<CR>
 
 " Python settings
 let python_highlight_all=1
-autocmd filetype python highlight ColorColumn ctermbg=magenta
-autocmd filetype python call matchadd('ColorColumn', '\%80v\S', 100)
-autocmd BufWritePost *.py call Flake8()
+"autocmd filetype python highlight ColorColumn ctermbg=magenta
+"autocmd filetype python call matchadd('ColorColumn', '\%80v\S', 100)
+"autocmd BufWritePost *.py call Flake8()
 
 " C settings
 autocmd filetype c highlight ColorColumn ctermbg=magenta
@@ -152,7 +159,10 @@ autocmd FileType tex set breakindent
 autocmd BufWritePost *.tex call jobstart('pdflatex '.expand('%').' && killall -HUP mupdf')
 autocmd FileType tex command LP call jobstart('mupdf '.expand('%:r').'.pdf')
 autocmd FileType tex set synmaxcol=80
-autocmd FileType tex nnoremap h gh
 autocmd FileType tex nnoremap j gj
 autocmd FileType tex nnoremap k gk
-autocmd FileType tex nnoremap l gl
+
+" Load in local vimrc
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
