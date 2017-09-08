@@ -39,6 +39,7 @@ set hidden
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 set wrap
 set linebreak
+set nohlsearch
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
