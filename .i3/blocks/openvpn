@@ -1,0 +1,15 @@
+#! /usr/bin/env bash
+
+service_name="openvpn-client@mullvad.service"
+running_str="$(systemctl status $service_name | grep Active | grep -o running)"
+
+if [ -z $running_str ]; then
+    echo "  vpn off"
+else
+    ready_str="$(systemctl status $service_name | grep 'Initialization Sequence Completed')"
+    if [ -z "$ready_str" ]; then
+        echo "  initializing..."
+    else
+        echo "  vpn on"
+    fi
+fi

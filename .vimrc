@@ -1,4 +1,5 @@
 " Setup vim-plug
+"
 call plug#begin('~/.vim/bundle')
 
 " Plugins
@@ -9,9 +10,9 @@ Plug 'vim-scripts/indentpython.vim', {'for':'python'}
 Plug 'lepture/vim-jinja', {'for':'html'}
 Plug 'othree/xml.vim', {'for':'html'}
 Plug 'nvie/vim-flake8', {'for':'python'}
+Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
-Plug 'fholgado/minibufexpl.vim'
 
 " Color schemes
 Plug 'lokaltog/vim-distinguished'
@@ -117,6 +118,7 @@ if has('nvim')
     nmap <F3> :call SwitchToTerm()<CR>
     imap <F3> <ESC><F3>
     tnoremap <ESC> <C-\><C-n><C-w><C-c>
+    nmap <F2> :call SwitchToTerm()<CR><Up>
 
     "Navigation
     tnoremap <C-w> <C-\><C-n><C-w>
@@ -140,11 +142,12 @@ nmap <Leader>s :set spell!<CR>
 let python_highlight_all=1
 autocmd filetype python highlight ColorColumn ctermbg=magenta
 autocmd filetype python call matchadd('ColorColumn', '\%80v\S', 100)
-autocmd BufWritePost *.py call Flake8()
+autocmd filetype python nnoremap <Leader>4 :call Flake8()<CR>
+nmap <silent> <C-p> <Plug>(pydocstring)
 
 " C settings
 autocmd filetype c highlight ColorColumn ctermbg=magenta
-autocmd filetype c call matchadd('ColorColumn', '\%80v', 100)
+autocmd filetype c call matchadd('ColorColumn', '\%80v\S', 100)
 
 " LaTeX settings
 let g:tex_conceal="a"
@@ -152,7 +155,10 @@ autocmd FileType tex set breakindent
 autocmd BufWritePost *.tex call jobstart('pdflatex '.expand('%').' && killall -HUP mupdf')
 autocmd FileType tex command LP call jobstart('mupdf '.expand('%:r').'.pdf')
 autocmd FileType tex set synmaxcol=80
-autocmd FileType tex nnoremap h gh
+autocmd FileType tex highlight Error NONE
 autocmd FileType tex nnoremap j gj
 autocmd FileType tex nnoremap k gk
-autocmd FileType tex nnoremap l gl
+
+" Markdown settings
+autocmd FileType markdown set foldmethod=marker foldmarker={{,}}
+autocmd FileType markdown set breakindent

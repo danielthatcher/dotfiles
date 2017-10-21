@@ -19,6 +19,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt extendedglob
 unsetopt beep notify
+bindkey -v
 # End of lines configured by zsh-newuser-install
 
 autoload -U colors
@@ -53,5 +54,8 @@ alias -s {jar}='java -jar'
 
 ##Misc
 alias lsa='ls -A'
-alias jbook='cd ~/Documents/Jupyter\ Notebooks/ && jupyter-notebook'
+#alias jbook='cd ~/Documents/Jupyter\ Notebooks/ && jupyter-notebook'
+alias jbook='cd ~/Projects/ && jupyter-notebook'
 alias syncgdrive='cd /home/daniel/GoogleDrive/ && grive && cd -'
+alias vpnon='sudo systemctl start openvpn-client@mullvad.service'
+alias vpnoff='sudo systemctl stop openvpn-client@mullvad.service'

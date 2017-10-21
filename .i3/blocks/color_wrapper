@@ -28,6 +28,9 @@ case $1 in
 	'disk')
 		echo "$COLOR7"
 		;;
+    'openvpn')
+        echo "$COLOR6"
+        ;;
     'net_ssid')
         echo "$COLOR5"
         ;;
