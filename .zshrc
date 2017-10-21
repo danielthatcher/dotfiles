@@ -54,7 +54,6 @@ alias -s {jar}='java -jar'
 
 ##Misc
 alias lsa='ls -A'
-#alias jbook='cd ~/Documents/Jupyter\ Notebooks/ && jupyter-notebook'
 alias jbook='cd ~/Projects/ && jupyter-notebook'
 alias syncgdrive='cd /home/daniel/GoogleDrive/ && grive && cd -'
 alias vpnon='sudo systemctl start openvpn-client@mullvad.service'

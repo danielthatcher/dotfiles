@@ -1,5 +1,4 @@
 " Setup vim-plug
-"
 call plug#begin('~/.vim/bundle')
 
 " Plugins
@@ -20,7 +19,12 @@ Plug 'albertorestifo/github.vim'
 Plug 'dikiaap/minimalist'
 Plug 'cohlin/vim-colorschemes'
 
-    " End vim-plug stuff
+" Local plugins
+if filereadable(expand("~/.vimplug.local"))
+    source ~/.vimplug.local
+endif
+
+" End vim-plug stuff
 call plug#end()
 
 "set termguicolors 
@@ -34,6 +38,9 @@ set nu
 set formatoptions-=cro
 set hidden
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+set wrap
+set linebreak
+set nohlsearch
 
 " Window navigation
 nnoremap <C-l> <C-w><C-l>
@@ -43,7 +50,7 @@ nnoremap <C-j> <C-w><C-j>
 nnoremap <C-c> <C-w>c
 
 " New line remaps
-nnoremap <Enter> mno<ESC>`n
+" nnoremap <Enter> mno<ESC>`n
 
 " Add code folding and remap to space
 set foldmethod=syntax
@@ -63,8 +70,8 @@ let g:indentLine_char = '┆'
 let g:indentLine_enabled = 1
 
 " MiniBuExplorer and other buffer
-map <F2> :MBEToggle<CR>
-imap <F2> :MBEToggle<CR>
+" map <F2> :MBEToggle<CR>
+" imap <F2> :MBEToggle<CR>
 set hidden
 
 " Settings for minibufexplorer
@@ -116,6 +123,7 @@ endfunction
 
 if has('nvim')
     nmap <F3> :call SwitchToTerm()<CR>
+    nmap <F2> <F3><UP>
     imap <F3> <ESC><F3>
     tnoremap <ESC> <C-\><C-n><C-w><C-c>
     nmap <F2> :call SwitchToTerm()<CR><Up>
@@ -162,3 +170,8 @@ autocmd FileType tex nnoremap k gk
 " Markdown settings
 autocmd FileType markdown set foldmethod=marker foldmarker={{,}}
 autocmd FileType markdown set breakindent
+
+" Load in local vimrc
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
