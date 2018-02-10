@@ -29,12 +29,17 @@ PROMPT="%{$fg[cyan]%}%n%{$fg[white]%}:%{$fg[yellow]%}%~ %(!.#.$)%{$reset_color%}
 #Add ~/.local/bin to path
 export PATH="$HOME/.local/bin:$PATH"
 
+# Source local config
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
+
 #User aliases
 ##Pakcage management
 alias pac='sudo pacman -S'
 alias pacs='pacman -Ss'
 alias pacr='sudo pacman -Rs'
-alias pacu='sudo pacman -Syu && pacaur -Syyu'
+alias pacu='sudo pacman -Syyu && pacaur -Syyu'
 
 ##Power
 alias bork='systemctl poweroff'

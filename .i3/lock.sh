@@ -1,13 +1,5 @@
 #!/usr/bin/env bash
 
-#icon="$HOME/.i3/lock.png"
-#tmpbg='/tmp/screen.png'
-
-#(( $# )) && { icon=$1; }
-
-#scrot "$tmpbg"
-#convert "$tmpbg" -scale 10% -scale 1000% "$tmpbg"
-#convert "$tmpbg" "$icon" -gravity center -composite -matte "$tmpbg"
-#i3lock -u -i "$tmpbg"
-
-i3lock-next
+killall compton
+i3lock -e -c 111111 -n
+exec compton -i 0.87 -b -CG -m 0.9 -fI 0.035 -O 0.035 --config /dev/null --backend xrender

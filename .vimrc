@@ -12,6 +12,8 @@ Plug 'nvie/vim-flake8', {'for':'python'}
 Plug 'heavenshell/vim-pydocstring', {'for': 'python'}
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Color schemes
 Plug 'lokaltog/vim-distinguished'
